@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'cap3final'
-set :repo_url, 'git@example.com:bryanus/cap3final.git'
+set :repo_url, 'git@github.com:bryanus/cap3final.git'
 
 # rbenv configuration
 set :rbenv_type, :user
@@ -42,6 +42,17 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+    end
+  end
+
+  desc "Check that we can access everything"
+  task :check_write_permissions do
+    on roles(:all) do |host|
+      if test("[ -w #{fetch(:deploy_to)} ]")
+        info "#{fetch(:deploy_to)} is writable on #{host}"
+      else
+        error "#{fetch(:deploy_to)} is not writable on #{host}"
+      end
     end
   end
 
