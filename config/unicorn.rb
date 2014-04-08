@@ -1,4 +1,4 @@
-root = "/home/deployer/apps/cap3final/current"
+root = "/home/mr_deployer/apps/cap3final/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
@@ -12,5 +12,5 @@ timeout 30
 # otherwise once we've first started a master process, it
 # will always point to the first one it started.
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "/home/deployer/apps/cap3final/current/Gemfile"
+  ENV['BUNDLE_GEMFILE'] = "/home/mr_deployer/apps/cap3final/current/Gemfile"
 end

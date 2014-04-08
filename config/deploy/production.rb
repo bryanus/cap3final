@@ -8,9 +8,9 @@
 set :stage, :production
 set :branch, 'master'
 
-server "54.186.126.251", user: 'deployer', roles: %w{web app db}, primary: true
+server "54.187.16.194", user: 'mr_deployer', roles: %w{web app db}, primary: true
 
-set :deploy_to, '/home/deployer/apps/cap3final'
+set :deploy_to, '/home/mr_deployer/apps/cap3final'
 set :rails_env, :production
 
 set :enable_ssl, false
